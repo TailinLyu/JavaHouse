@@ -4,7 +4,7 @@ const bodyParser = require("body-parser")
 
 const app = express()
 app.use(bodyParser.json())
-const port = 3000
+const port = 5000
 
 const sequelize = new Sequelize("JavaHouse", "root", "disasterrelief11", {
 	host: "localhost",
@@ -70,7 +70,8 @@ app.get("/drinks-detail/:id", async (req, res) => {
     res.send(drinkDetail)
 })
 app.get("/drinks", async (req, res) => {
-	const drinkNames = [](await Drinks.findAll()).forEach((drink) =>
+    const drinkNames = [];
+    (await Drinks.findAll()).forEach((drink) =>
 		drinkNames.push(drink.drinkName)
 	)
 	res.send(drinkNames)
