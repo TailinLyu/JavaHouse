@@ -45,10 +45,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Drinks from the database.
 exports.findAll = (req, res) => {
-      const name = req.query.name;  //We use req.query.name to get query string from the Request and consider it as condition for findAll() method.
-      var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
     
-      Drink.findAll({ where: condition })
+      Drink.findAll()
         .then(data => {
           res.send(data);
         })
