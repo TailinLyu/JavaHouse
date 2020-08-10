@@ -3,7 +3,7 @@ import React, { Component } from "react"
 class AddDrink extends Component {
 
 	state = {
-		drinkName: '',
+		name: '',
 		recipe: ''
 	}
 
@@ -28,7 +28,7 @@ class AddDrink extends Component {
 						<label>Drink Name</label>
 						<input
 							type="text"
-							name="drinkName"
+							name="name"
 							placeholder="Drink Name"
 							onChange={this.handleOnChange}
 						/>

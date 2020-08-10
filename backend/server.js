@@ -21,9 +21,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./models/index");
 // In development, you may need to drop existing tables and re-sync database. Just use force: true
 // !!!!!!Only run this for the first time
-db.sequelize.sync({ force: true }).then(() => {
-      console.log("Drop and re-sync db.");
-    });
+// db.sequelize.sync({ force: true }).then(() => {
+//       console.log("Drop and re-sync db.");
+//     });
 
 // simple route
 app.get("/", (req, res) => {

@@ -57,12 +57,13 @@ exports.findAll = (req, res) => {
 				})
 			)
 		)
+		.then(() => res.send(drinkDetails))
 		.catch((err) => {
 			res.status(500).send({
 				message: err.message || "Some error occurred while retrieving drink.",
 			})
 		})
-	res.send(drinkDetails)
+	
 }
 
 // Retreve a single object. Find a single Drink with an id
@@ -92,10 +93,11 @@ exports.udpate = (req, res) => {
 		.then((drink) => ({
 			name: req.body.name || drink.name,
 			recipe: req.body.recipe || drink.recipe,
+			availability: req.body.availability
 		}))
 		.then((info) =>
 			Drink.update(
-				{ name: info.name, recipe: info.recipe },
+				{ name: info.name, recipe: info.recipe, availability: info.availability },
 				{
 					where: { id: id },
 				}

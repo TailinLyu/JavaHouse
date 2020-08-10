@@ -12,15 +12,15 @@ class App extends Component {
 	}
 
 	getAllDrinks = () => {
-		fetch("/drinks-detail")
+		fetch("/api/drinks")
 			.then((res) => res.json())
 			.then((drinks) => this.setState({ drinks }))
 	}
 	handleOnSubmit = (drink) => {
-		fetch("/drinks", {
+		fetch("/api/drinks", {
 			method: "POST",
 			body: JSON.stringify({
-				drinkName: drink.drinkName,
+				name: drink.name,
 				recipe: drink.recipe,
 			}),
 			headers: {
@@ -31,23 +31,23 @@ class App extends Component {
 		}).then(this.getAllDrinks())
 	}
 	handleEdit = (drink) => {
-		fetch(`/drinks/${drink.drinkId}`, {
+		fetch(`/api/drinks/${drink.id}`, {
 			method: "PATCH",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ recipe: drink.recipe }),
+			body: JSON.stringify({ name: drink.name, recipe: drink.recipe, availability: drink.availability }),
 		}).then(this.getAllDrinks())
 	}
-	handleDelete = (drinkId) => {
-		fetch(`/drinks/${drinkId}`, {
+	handleDelete = (id) => {
+		fetch(`/api/drinks/${id}`, {
 			method: "DELETE",
 			headers: {
 				Accept: "application/json",
 				"Content-Type": "application/json",
 			},
-			body: JSON.stringify({ drinkId: drinkId }),
+			body: JSON.stringify({ id: id }),
 		}).then(this.getAllDrinks())
 	}
 	render() {
