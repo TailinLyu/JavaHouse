@@ -8,7 +8,7 @@ These are our routes:
 */
 
 module.exports = app => {
-      const drinks = require("../controllers/drink.controller.js");
+      const drinks = require("../controllers/drink.controller");
     
       var router = require("express").Router();
     
@@ -25,7 +25,7 @@ module.exports = app => {
       router.get("/:id", drinks.findOne);
     
       // Update a drink with id
-      router.put("/:id", drinks.udpate);
+      router.patch("/:id", drinks.udpate);
     
       // Delete a drink with id
       router.delete("/:id", drinks.delete);

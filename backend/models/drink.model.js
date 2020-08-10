@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize) => {
         name: {
           type: Sequelize.STRING
         },
-        ingredient: {
+        recipe: {
           type: Sequelize.STRING
         },
         availability: {
@@ -16,7 +16,7 @@ module.exports = (sequelize, Sequelize) => {
 
 /*
 This Sequelize Model represents drink table in MySQL database. 
-These columns will be generated automatically: id, name, ingredient, availability, createdAt, updatedAt.
+These columns will be generated automatically: id, name, recipe, availability, createdAt, updatedAt.
 
 After initializing Sequelize, we don’t need to write CRUD functions, Sequelize supports all of them:
 create a new drink: create(object)

@@ -1,8 +1,8 @@
 module.exports = {     // First five parameters are for MySQL connection.
       HOST: "localhost",
       USER: "root",
-      PASSWORD: "123456",
-      DB: "JavaHouseDB",
+      PASSWORD: "disasterrelief11",
+      DB: "JavaHouse",
       dialect: "mysql",
       pool: {        // pool is optional, it will be used for Sequelize connection pool configuration: 
         max: 5,     // maximum number of connection in pool

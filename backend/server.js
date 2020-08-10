@@ -18,8 +18,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // call sync()
-const db = require("./app/models");
+const db = require("./models/index");
 // In development, you may need to drop existing tables and re-sync database. Just use force: true
+// !!!!!!Only run this for the first time
 db.sequelize.sync({ force: true }).then(() => {
       console.log("Drop and re-sync db.");
     });
@@ -30,10 +31,10 @@ app.get("/", (req, res) => {
 });
 
 // inlude routes in server.js
-require("./app/routes/drink.routes")(app);
+require("./routes/drink.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

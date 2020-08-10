@@ -18,10 +18,10 @@
 - DELETE /drinks/<id>
 
 #### Design Database
-- Menu: DrinkId, DrinkName, Ingredient
+- Menu: DrinkId, DrinkName, recipe
   "Coffee, Milk" "Coffee" "Sugar, Pompkin, Milk, Coffee"
 - Menu: drinkId, drinkName
-  drink: drinkId, drinkName, ingredientId, price, availability
+  drink: drinkId, drinkName, recipeId, price, availability
   Ingredient: id, name
 
 
